@@ -7,7 +7,7 @@ This repository contains a collection of notebooks exploring energy-efficient ma
 	<img src="images/A%20-%20box_creature.gif" alt="box creature" width="360" />
 	<img src="images/A%20-%20worm_creature.gif" alt="worm creature" width="360" />
 
-- **B - Location optimization with Gaussian Processes.ipynb**: This notebook provides an overview of Gaussian Process (GP) optimization, emphasizing its efficiency in sample usage. In a marine setting, it could help identify areas of high animal density, where each sample is costly due to the need to raise and lower equipment.
+- **B - Location optimization with Gaussian Processes.ipynb**: This notebook provides an overview of Gaussian Process (GP) optimization, emphasizing its efficiency in sample usage. In a marine setting each sample of something like animal density is costly due to the need to raise and lower equipment.
 
 	![GP progress](images/B%20-%20GP_progress.png)
 
@@ -15,8 +15,14 @@ This repository contains a collection of notebooks exploring energy-efficient ma
 
 	![Noise with signal](images/C%20-%20Noise_with_signal.png)
 	![Array and signals](images/C%20-%20array_and_signals.png)
-	<img src="images/C%20-%20score_grid.gif" alt="Score grid" width="360" />
+	<img src="images/C%20-%20score_grid.png" alt="Score grid" width="360" />
 
-- **D - Location optimization with an energy budget.ipynb**: This notebook extends the GP-based location optimization from Notebook B to explicitly consider energy or battery constraints. While standard GP optimization minimizes the number of samples, traveling between locations incurs a cost. I explore information-theoretic approaches and test methods for downweighting expected improvement based on travel distance.
+- **D - Location optimization with an energy budget.ipynb**: This notebook extends the GP-based location optimization from Notebook B to explicitly consider energy or battery constraints. While standard GP optimization is efficient in the number of samples, traveling between locations might incur some cost in some scenarios. I explore information-theoretic approaches and test methods for downweighting expected improvement based on travel distance.
 
 	![GP with budget](images/D%20-%20gp_with_budget.png)
+
+- **E - Optimization with rare events.ipynb**: This notebook looks at the challenge of nagivating to an area with a high number of events per unit time when you only see events rather than the underlying code. Consider an autonomous robot trying to find the point of highest animal density in a particular area. The underlying data comes from a continuous version of the multi-armed bandit problem, or an Inhomogenous Poisson Process. I test out a solution where the events over time are turned into a events-per-unit-time plot as the robot moves, and from that plot I look at reconstructing the full multidimensional function.
+
+	![GP with budget](images/E%20-%20path_true_function.png)
+	![GP with budget](images/E%20-%20samples_path_example.png)
+	![GP with budget](images/E%20-%20path_inferred_function.png)
