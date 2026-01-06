@@ -1,22 +1,22 @@
 # Energy-Efficient Marine Inference
 
-Collection of notebooks exploring energy-efficient machine learning and sensing strategies for low-disturbance marine observation. I focus approaches which minimize expensive resources like movement, communication and lighting. Here is an overview of each notebook:
+This repository contains a collection of notebooks exploring energy-efficient machine learning and sensing strategies for low-disturbance marine observation. The focus is on approaches that minimize expensive resources such as movement, communication, and lighting. Below is an overview of each notebook:
 
-- **A - Species inference from movement acoustics.ipynb**: I examine whether acoustic signatures created by movement close to a hydrophone array could be used to infer the species present. I make some very simple synthetic data and train a simple classifier. The benefit is you don't distube light-sensitive animals and you also avoid expensive lighting. This could enable an autonomous robot to monitor for a long period of time.
+- **A - Species inference from movement acoustics.ipynb**: This notebook investigates whether acoustic signatures produced by animal movement near a hydrophone array can be used to infer species presence. I generate simple synthetic data and train a basic classifier. This approach avoids disturbing light-sensitive animals and eliminates the need for energy-intensive lighting, enabling long-term autonomous monitoring.
 
 	<img src="images/A%20-%20box_creature.gif" alt="box creature" width="360" />
 	<img src="images/A%20-%20worm_creature.gif" alt="worm creature" width="360" />
 
-- **B - Location optimization with Gaussian Processes.ipynb**: This notebook just reviews Gaussian Process optimization. A major benefit is the efficiency with which samples are used. In the marine context you might want to find areas of high animal density, but each sample is very expensive as you need to raise and lower the equipment. 
+- **B - Location optimization with Gaussian Processes.ipynb**: This notebook provides an overview of Gaussian Process (GP) optimization, emphasizing its efficiency in sample usage. In a marine setting, it could help identify areas of high animal density, where each sample is costly due to the need to raise and lower equipment.
 
 	![GP progress](images/B%20-%20GP_progress.png)
 
-- **C - Distributed event inference with communication costs.ipynb**: In this notebook I look at how a set of stationary receivers can infer whether an event has occured against a noisy background. In the marine context you could be trying to detect the presence of a whale using multiple sensors placed in a grid. I come up with a standard approach where the signals are first aggregated between nodes before briefly exploring a communication-efficient alternative where each node performs it's own inference and only sends a message when a certain trigger threshold is met. Of course, results need to be aggregated somehow in a way which deals with the inherent noise.
+- **C - Distributed event inference with communication costs.ipynb**: Here, I explore how a network of stationary receivers can detect events against a noisy background. For example, this could involve detecting whale presence using multiple sensors arranged in a grid. I implement a standard approach where signals are first aggregated between nodes, and then explore a communication-efficient variant where each node performs local inference and only transmits a message if a threshold is met. Aggregation of messages must account for accidental triggering.
 
 	![Noise with signal](images/C%20-%20Noise_with_signal.png)
 	![Array and signals](images/C%20-%20array_and_signals.png)
 	<img src="images/C%20-%20score_grid.gif" alt="Score grid" width="360" />
 
-- **D - Location optimization with an energy budget.ipynb**: Here I wonder about extending the GP-based location selection from notebook B to explicitly include energy/battery budgets. Plain GP optimization is good for minimizing the number of samples, but what if travelling from one sample to the next has a cost? I review some information theory and then explore whether the distance can be used to downweight expected improvement. 
+- **D - Location optimization with an energy budget.ipynb**: This notebook extends the GP-based location optimization from Notebook B to explicitly consider energy or battery constraints. While standard GP optimization minimizes the number of samples, traveling between locations incurs a cost. I explore information-theoretic approaches and test methods for downweighting expected improvement based on travel distance.
 
 	![GP with budget](images/D%20-%20gp_with_budget.png)
