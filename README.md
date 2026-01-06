@@ -1,6 +1,6 @@
 # Energy-Efficient Marine Inference
 
-Collection of notebooks exploring energy-efficient machine learning and sensing strategies for low-disturbance marine observation. I focus approaches which minimize expensive resources (battery, movement, communication, lighting, retrieval). Here is an overview of each notebook:
+Collection of notebooks exploring energy-efficient machine learning and sensing strategies for low-disturbance marine observation. I focus approaches which minimize expensive resources like movement, communication and lighting. Here is an overview of each notebook:
 
 - **A - Species inference from movement acoustics.ipynb**: I examine whether acoustic signatures created by movement close to a hydrophone array could be used to infer the species present. I make some very simple synthetic data and train a simple classifier. The benefit is you don't distube light-sensitive animals and you also avoid expensive lighting. This could enable an autonomous robot to monitor for a long period of time.
 
