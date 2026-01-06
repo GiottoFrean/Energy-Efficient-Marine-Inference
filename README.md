@@ -23,6 +23,6 @@ This repository contains a collection of notebooks exploring energy-efficient ma
 
 - **E - Optimization with rare events.ipynb**: This notebook looks at the challenge of nagivating to an area with a high number of events per unit time when you only see events rather than the underlying code. Consider an autonomous robot trying to find the point of highest animal density in a particular area. The underlying data comes from a continuous version of the multi-armed bandit problem, or an Inhomogenous Poisson Process. I test out a solution where the events over time are turned into a events-per-unit-time plot as the robot moves, and from that plot I look at reconstructing the full multidimensional function.
 
-	![GP with budget](images/E%20-%20path_true_function.png)
+	<img src="images/E%20-%20path_true_function.png" alt="Score grid" width="360" />
 	![GP with budget](images/E%20-%20samples_path_example.png)
-	![GP with budget](images/E%20-%20path_inferred_function.png)
+	<img src="images/E%20-%20path_inferred_function.png" alt="Score grid" width="360" />
