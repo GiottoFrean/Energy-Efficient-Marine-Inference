@@ -4,7 +4,7 @@ Collecting marine data in-person is often infeasible at depth because it's diffi
 
 AUVs rely on battery power. This means when designing these algorithms we need to pay careful attention to energy efficiency to avoid frequent retrieval, recharging, and redeployment. Maximizing data-per-unit-energy could involve:
 
-1. Using low-energy sensors (e.g., hydrohpones instead of cameras).
+1. Using low-energy sensors (e.g., hydrophones instead of cameras).
 2. Moving the AUV to a better location when replacing the batteries.
 3. Having the AUV move to a better location itself.
 4. Use multiple AUVs and have them communicate (minimally).
@@ -33,12 +33,12 @@ Collection of training data would mean navigating to places with high animal den
 
 ---
 
-## B - Location Optimization with Gaussian Processes
+## B - Location Optimisation with Gaussian Processes
 
 Imagine you are trying to put your AUV at the point of highest animal density, given a set of observations. One option is to use a Gaussian Process (GP) for optimization. The main benefit is the method is very sample-efficient, which means fewer trips. This notebook provides an overview of the method.
 
 <p align="center">
-  <img src="images/B%20-%20GP_progress.png" alt="Gaussian Process optimization progress" width="720"/>
+  <img src="images/B%20-%20GP_progress.png" alt="Gaussian Process optimisation progress" width="720"/>
 </p>
 <p align="center"><em>Evolution of the GP posterior and during optimization.</em></p>
 
@@ -71,22 +71,22 @@ The latter requires handling accidental or spurious triggers.
 
 ---
 
-## D - Location Optimization with an Explicit Energy Budget
+## D - Location Optimisation with an Explicit Energy Budget
 
 This notebook extends the GP-based optimization demonstrated in notebook B by explicitly incorporating energy constraints. While GP optimization is sample-efficient, we also might want to consider the movement cost between locations. While the cost of moving the boat and crew around is mainly determined by the number of samples you take (unless you're travelling many miles), the cost of moving a AUV around underwater is instead dictated by the distance.
 
 I briefly review the existing approach of using mutual information for planning a trajectory and then demonstrate that a simple down-weighting of expected improvement by travel distance can improve the performance of an energy-constrained optimizer.
 
 <p align="center">
-  <img src="images/D%20-%20gp_with_budget.png" alt="GP optimization with energy budget" width="720"/>
+  <img src="images/D%20-%20gp_with_budget.png" alt="GP optimisation with energy budget" width="720"/>
 </p>
 <p align="center"><em>GP optimization when travel cost is explicitly penalized.</em></p>
 
 ---
 
-## E - Optimization with Rare Events
+## E - Optimisation with Rare Events
 
-This notebook doesn't address energy efficiency, but does look at how to navigating toward regions with high event rates when the underlying function is unobserved. In the scenario presented we never observe the true animal density, we have to infer it. We also might want to optimize the density in order to collect lots of data for something like the classifier described in notebook A.
+This notebook doesn't address energy efficiency, but does look at how to navigate toward regions with high event rates when all you see are events over time. We also might want to optimise a density of events such as animal observations in order to collect lots of data for something like the classifier described in notebook A.
 
 The problem can be framed as inference over an inhomogeneous Poisson process, or a kind of continuous multi-armed bandit problem. I test an approach where observed events are converted into an events-per-unit-time signal along the robot's path, which is then used to reconstruct the full spatial intensity function.
 
